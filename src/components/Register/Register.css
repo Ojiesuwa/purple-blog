@@ -1,0 +1,85 @@
+.Register {
+  width: 100vw;
+  height: 100svh;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Register * {
+  color: var(--text-color);
+}
+
+.Register .modal-background {
+  width: 460px;
+  height: fit-content;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 37px;
+}
+
+.modal-background {
+  background-color: var(--background-color);
+  border-radius: 10px;
+}
+
+.modal-background p {
+  color: #000;
+}
+
+.modal-background .auth-heading {
+  color: #000;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.modal-background .auth-form-wrapper {
+  width: 100%;
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.Register .auth-container {
+}
+
+.Register .auth-container p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.Register .name-wrapper {
+  display: flex;
+  gap: 18px;
+}
+
+.Register .action-wrapper {
+  margin-top: 35px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Register .action-wrapper button {
+  background-color: var(--dark-button);
+  color: #fff;
+}
+
+.Register .action-wrapper p {
+  font-size: 15px;
+  margin-top: 18px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.Register .action-wrapper p:hover {
+  opacity: 1;
+}

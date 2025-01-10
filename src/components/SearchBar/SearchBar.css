@@ -16,6 +16,8 @@
 .SearchBar input {
   color: #fff;
   font-size: 12px;
+  border: 0;
+  padding: 0;
 }
 .SearchBar input::placeholder {
   color: #ffffff6a;

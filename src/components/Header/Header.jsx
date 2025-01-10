@@ -5,12 +5,28 @@ import Avatar from "../Avatar/Avatar";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navigation } from "../../site/navigation";
 import useAuth from "../../hooks/useAuth";
+import Register from "../Register/Register";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { userCredential } = useAuth();
   const [navIndex, setNavIndex] = useState(0);
+  const [isRegVisible, setIsRegVisible] = useState(false);
+
+  useEffect(() => {
+    const handleHideReg = (e) => {
+      if (e.key === "Escape") {
+        setIsRegVisible(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleHideReg);
+
+    return () => {
+      document.removeEventListener("keydown", handleHideReg);
+    };
+  }, []);
 
   useEffect(() => {
     switch (location.pathname) {
@@ -68,9 +84,15 @@ const Header = () => {
         {userCredential ? (
           <Avatar />
         ) : (
-          <button className="login-btn">Login</button>
+          <button className="login-btn" onClick={() => setIsRegVisible(true)}>
+            Login
+          </button>
         )}
       </div>
+      <Register
+        isVisible={isRegVisible}
+        onHideReg={() => setIsRegVisible(false)}
+      />
     </div>
   );
 };
