@@ -1,0 +1,70 @@
+.Header {
+  height: 65px;
+  width: 100vw;
+  background-color: var(--accent-color);
+  padding: 0 35px;
+  display: flex;
+  align-items: center;
+}
+.Header * {
+  color: #fff;
+}
+
+.Header > * {
+  width: 100%;
+}
+
+.Header .logo-name {
+  font-family: "La Belle Aurore", serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.Header .center-wing {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  width: 360px;
+}
+
+.Header .center-wing .nav-wrapper {
+  width: 90px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Header .center-wing .nav-wrapper:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.Header .center-wing .nav-wrapper p {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.Header .nav-indicator {
+  width: 90px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.Header .right-wing {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 35px;
+}
+.Header .right-wing .login-btn {
+  height: 45px;
+  width: 100px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0;
+  border-radius: 22.5px;
+}

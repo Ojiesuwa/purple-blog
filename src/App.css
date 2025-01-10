@@ -1,42 +1,52 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url("./css//animation.css");
+@import url("./css//tailwind.css");
+
+:root {
+  --accent-color: #4b0082;
+  --text-color: #000;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.3s ease;
+  font-family: "Poppins", "Montserrat", "DM Sans", sans-serif;
+  outline: none;
+  border: 0;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App {
+  width: 100vw;
+  height: 100svh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.page {
+  width: 100vw;
+  height: calc(100svh - 65px);
+  overflow-y: scroll;
 }
 
-.card {
-  padding: 2em;
+/* input fields */
+input {
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  color: var(--text-color);
+}
+/* Custom */
+.accent-text {
+  color: var(--accent-color);
 }
 
-.read-the-docs {
-  color: #888;
+/* button */
+button {
+  height: 45px;
+  border-radius: 10px;
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
