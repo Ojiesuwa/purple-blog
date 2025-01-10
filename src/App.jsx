@@ -5,6 +5,9 @@ import Header from "./components/Header/Header";
 import "./App.css";
 import Landing from "./pages/Landing/Landing";
 import ViewPost from "./pages/ViewPost/ViewPost";
+import AuthScreen from "./components/AuthScreen/AuthScreen";
+import { Flip, ToastContainer, Bounce, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -19,6 +22,20 @@ function App() {
               element={<ViewPost />}
             />
           </Routes>
+          <AuthScreen />
+          <ToastContainer
+            position={window.innerWidth > 800 ? "bottom-left" : "top-center"}
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            transition={window.innerWidth > 800 ? Flip : Bounce}
+          />
         </AuthProvider>
       </BrowserRouter>
     </div>

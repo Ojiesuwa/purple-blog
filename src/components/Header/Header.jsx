@@ -29,6 +29,12 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    if (userCredential) {
+      setIsRegVisible(false);
+    }
+  }, [userCredential]);
+
+  useEffect(() => {
     switch (location.pathname) {
       case navigation.homePage.base:
         setNavIndex(0);

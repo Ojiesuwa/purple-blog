@@ -1,6 +1,18 @@
 .Avatar {
-  width: 40px;
   height: 40px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  position: relative;
+}
+
+.Avatar * {
+  color: #000;
+}
+
+.Avatar:hover {
+  cursor: pointer;
 }
 
 .Avatar img {
@@ -8,4 +20,55 @@
   height: 40px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.Avatar i {
+  font-size: 10px;
+  color: #fff;
+}
+
+.Avatar .action-list {
+  width: 320px;
+  height: fit-content;
+  min-height: 100px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.Avatar .action-list * {
+}
+
+.category-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.category select {
+  margin-top: 5px;
+}
+
+.Avatar .account-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+.Avatar .account-email {
+  font-size: 12px;
+  opacity: 0.5;
+}
+.Avatar .category {
+}
+
+.Avatar .line {
+  margin: 14px 0;
+  height: 0.5px;
+}
+
+.Avatar .action-list button {
+  color: #fff;
 }
