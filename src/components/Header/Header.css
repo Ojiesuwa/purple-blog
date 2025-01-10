@@ -1,7 +1,7 @@
 .Header {
   height: 65px;
   width: 100vw;
-  background-color: var(--accent-color);
+  background-color: var(--header-background);
   padding: 0 35px;
   display: flex;
   align-items: center;

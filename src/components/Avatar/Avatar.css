@@ -8,7 +8,7 @@
 }
 
 .Avatar * {
-  color: #000;
+  color: var(--text-color);
 }
 
 .Avatar:hover {
@@ -31,7 +31,7 @@
   width: 320px;
   height: fit-content;
   min-height: 100px;
-  background-color: var(--background-color);
+  background-color: var(--modal-background);
   border-radius: 10px;
   position: absolute;
   top: calc(100% + 10px);
@@ -39,6 +39,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 15px 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 300;
 }
 
 .Avatar .action-list * {
@@ -51,6 +52,10 @@
 
 .category select {
   margin-top: 5px;
+}
+
+.category .option {
+  color: #000;
 }
 
 .Avatar .account-name {

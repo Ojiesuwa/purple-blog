@@ -1,8 +1,11 @@
 import React from "react";
 import "./Landing.css";
 import HeroImage from "../../assets/hero1.png";
+import { useNavigate } from "react-router-dom";
+import { navigation } from "../../site/navigation";
 
 const Landing = () => {
+  const navigate = useNavigate();
   return (
     <div className="Landing page">
       <div className="left-wing fade-right">
@@ -14,7 +17,9 @@ const Landing = () => {
         <p className="small-hero-text fade-up">
           Dive into ideas, insights, and inspiration tailored just for you
         </p>
-        <button className="fade-up">Get started</button>
+        <button className="fade-up" onClick={() => navigate("/auth")}>
+          Get started
+        </button>
       </div>
     </div>
   );

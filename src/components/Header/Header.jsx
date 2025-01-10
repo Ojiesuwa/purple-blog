@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./Header.css";
 import SearchBar from "../SearchBar/SearchBar";
 import Avatar from "../Avatar/Avatar";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { navigation } from "../../site/navigation";
 import useAuth from "../../hooks/useAuth";
 import Register from "../Register/Register";
+import { useTheme } from "../../hooks/useTheme";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme } = useTheme();
   const { userCredential } = useAuth();
   const [navIndex, setNavIndex] = useState(0);
   const [isRegVisible, setIsRegVisible] = useState(false);
@@ -33,6 +35,12 @@ const Header = () => {
       setIsRegVisible(false);
     }
   }, [userCredential]);
+
+  useEffect(() => {
+    if (location.pathname === "/auth") {
+      setIsRegVisible(true);
+    }
+  }, [location]);
 
   useEffect(() => {
     switch (location.pathname) {

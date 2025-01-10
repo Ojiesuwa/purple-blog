@@ -1,13 +1,29 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import React, { createContext, useState } from "react";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/config";
 import { createNewAccount } from "../controllers/accounts";
 import { validateSignupDetails } from "../utils/validator";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
-  const [userCredential, setUserCredential] = useState(null);
+  const [userCredential, setUserCredential] = useState(undefined);
   const [accountData, setAccountData] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUserCredential(user);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const signup = ({ firstname, lastname, middlename, email, password }) => {
     return new Promise(async (resolve, reject) => {
@@ -45,9 +61,17 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
-  const login = () => {
-    return new Promise((resolve, reject) => {
+  const login = ({ email, password }) => {
+    return new Promise(async (resolve, reject) => {
       try {
+        const userData = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        setUserCredential(userData.user);
+
+        resolve();
       } catch (error) {
         console.error(error);
         reject(error);
@@ -56,8 +80,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   const signout = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       try {
+        await signOut(auth);
+        toast("You have been logged out");
+        resolve();
       } catch (error) {
         console.error(error);
         reject(error);

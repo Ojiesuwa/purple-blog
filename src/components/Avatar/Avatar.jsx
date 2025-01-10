@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Avatar.css";
+import useAuth from "../../hooks/useAuth";
+import { useTheme } from "../../hooks/useTheme";
 const Avatar = () => {
-  const [isListVisible, setIsListVisible] = useState(true);
+  const { signout } = useAuth();
+  const { theme, changeTheme } = useTheme();
+  const [isListVisible, setIsListVisible] = useState(false);
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
@@ -39,14 +43,19 @@ const Avatar = () => {
           <div className="line"></div>
           <div className="category">
             <p className="category-title">Theme</p>
-            <select name="" id="">
+            <select
+              name=""
+              id=""
+              value={theme}
+              onChange={(e) => changeTheme(e.target.value)}
+            >
               <option value="light">Light</option>
               <option value="dark">Dark</option>
             </select>
           </div>
           <div className="line"></div>
 
-          <button>Signout</button>
+          <button onClick={signout}>Signout</button>
         </div>
       )}
     </div>

@@ -17,6 +17,7 @@ function App() {
           <Header />
           <Routes>
             <Route path={navigation.homePage.base} element={<Landing />} />
+            <Route path={"*"} element={<Landing />} />
             <Route
               path={navigation.viewPostPage.dynamic}
               element={<ViewPost />}
