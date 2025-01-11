@@ -8,13 +8,36 @@ import ViewPost from "./pages/ViewPost/ViewPost";
 import AuthScreen from "./components/AuthScreen/AuthScreen";
 import { Flip, ToastContainer, Bounce, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect, useState } from "react";
+import MobileHeader from "./components/MobileHeader/MobileHeader";
 
 function App() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth <= 800) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    });
+
+    return () => {
+      window.removeEventListener("resize", () => {
+        if (window.innerWidth <= 800) {
+          setIsMobile(true);
+        } else {
+          setIsMobile(false);
+        }
+      });
+    };
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>
         <AuthProvider>
-          <Header />
+          {isMobile ? <MobileHeader /> : <Header />}
           <Routes>
             <Route path={navigation.homePage.base} element={<Landing />} />
             <Route path={"*"} element={<Landing />} />

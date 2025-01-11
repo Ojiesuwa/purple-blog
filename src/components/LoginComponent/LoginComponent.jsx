@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 
-const LoginComponent = ({ handleSwitchNav }) => {
+const LoginComponent = ({ handleSwitchNav, onFinish }) => {
   const { login } = useAuth();
   const [loginDetails, setLoginDetails] = useState({
     email: "",
@@ -19,7 +19,9 @@ const LoginComponent = ({ handleSwitchNav }) => {
       setIsLoading(true);
       console.log(loginDetails);
       await login(loginDetails);
+      setLoginDetails({ email: "", password: "" });
       toast.success("Login successful!");
+      onFinish();
     } catch (error) {
       console.error(error);
 
@@ -30,7 +32,6 @@ const LoginComponent = ({ handleSwitchNav }) => {
       toast.error("Couldn't log you in");
     } finally {
       setIsLoading(false);
-      setLoginDetails({ firstname: "", lastname: "" });
     }
   };
 

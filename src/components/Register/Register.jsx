@@ -10,9 +10,15 @@ const Register = ({ isVisible, onHideReg }) => {
       onClick={onHideReg}
     >
       {regMode ? (
-        <LoginComponent handleSwitchNav={() => setRegMode(false)} />
+        <LoginComponent
+          handleSwitchNav={() => setRegMode(false)}
+          onFinish={onHideReg}
+        />
       ) : (
-        <SignupComponent handleSwitchNav={() => setRegMode(true)} />
+        <SignupComponent
+          handleSwitchNav={() => setRegMode(true)}
+          onFinish={onHideReg}
+        />
       )}
     </div>
   );

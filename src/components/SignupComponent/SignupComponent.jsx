@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 
-const SignupComponent = ({ handleSwitchNav }) => {
+const SignupComponent = ({ handleSwitchNav, onFinish }) => {
   const { signup } = useAuth();
   const [signUpDetails, setSignupDetails] = useState({
     firstname: "",
@@ -21,6 +21,7 @@ const SignupComponent = ({ handleSwitchNav }) => {
       console.log(signUpDetails);
       await signup(signUpDetails);
       toast("Account succesfully created");
+      onFinish();
     } catch (error) {
       console.error(error);
 

@@ -1,0 +1,69 @@
+.MobileHeader {
+  width: 100vw;
+  height: 65px;
+  background-color: var(--header-background);
+  padding: 0 20px;
+}
+
+.MobileHeader .logo-name {
+  width: 100%;
+}
+
+.MobileHeader .middle-wing {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.MobileHeader .left-wing i {
+  font-size: 20px;
+}
+
+/* Navigation  */
+.Navigation {
+  width: 100vw;
+  height: fit-content;
+  background-color: var(--background-color);
+  padding: 25px 20px 0;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.Navigation * {
+  color: var(--text-color);
+}
+
+.Navigation .nav-wrapper {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.5px solid var(--border-light);
+}
+
+.Navigation .nav-wrapper:first-child {
+}
+.Navigation .nav-wrapper:last-child {
+  border-bottom: 0;
+  height: fit-content;
+  margin: 40px 0 30px;
+}
+
+.Navigation .nav-wrapper i {
+  font-size: 20px;
+}
+
+.nav-inactive {
+  top: -100%;
+}
+
+.nav-active {
+  top: 0;
+}

@@ -39,3 +39,29 @@
 .Landing button {
   width: 177px;
 }
+@media (max-width: 768px) {
+  .Landing {
+    flex-direction: column;
+  }
+  .Landing img {
+    width: 100%;
+    height: 300px;
+  }
+  .Landing .left-wing {
+    margin-left: 0;
+  }
+  .Landing .right-wing {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .Landing .right-wing .big-hero-text {
+    font-size: 32px;
+  }
+  .Landing .small-hero-text {
+    font-size: 14px;
+  }
+  .Landing button {
+    width: 100%;
+    height: 55px;
+  }
+}

@@ -3,7 +3,8 @@
 
 :root {
   --background-color: #fff;
-  --accent-color: #4b0082;
+  --accent-color: rgb(75, 0, 130);
+  --accent-low-opacity: rgb(75, 0, 130, 0.6);
   --text-color: #000;
   --dark-button: #1e1e1e;
   --header-background: #4b0082;
@@ -130,4 +131,11 @@ button:disabled:hover {
 
 .Toastify__close-button * {
   color: #fff;
+}
+
+@media screen and (max-width: 700px) {
+  button:hover {
+    opacity: 1;
+    transform: none;
+  }
 }

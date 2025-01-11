@@ -77,3 +77,11 @@
 .Avatar .action-list button {
   color: #fff;
 }
+
+@media screen and (max-width: 700px) {
+  .Avatar .action-list {
+    width: calc(100vw - 30px);
+
+    top: calc(100% + 20px);
+  }
+}
