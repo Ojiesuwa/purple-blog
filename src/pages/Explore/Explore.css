@@ -135,6 +135,7 @@
     display: none;
   }
   .BlogPreview .mobile-action {
+    display: flex;
     margin-top: 23px;
   }
 
