@@ -11,6 +11,7 @@
   --modal-background: #fff;
   --input-border-color: rgba(0, 0, 0, 0.5);
   --border-light: rgba(0, 0, 0, 0.3);
+  --border-light-extreme: rgba(0, 0, 0, 0.06);
 }
 
 * {
@@ -94,6 +95,15 @@ select {
   background-color: var(--border-light);
 }
 
+.page-padding {
+  padding: 27px 35px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 800;
+}
+
 /* button */
 button {
   height: 45px;
@@ -137,5 +147,8 @@ button:disabled:hover {
   button:hover {
     opacity: 1;
     transform: none;
+  }
+  .page-padding {
+    padding: 27px 20px;
   }
 }

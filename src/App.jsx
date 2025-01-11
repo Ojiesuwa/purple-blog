@@ -10,6 +10,7 @@ import { Flip, ToastContainer, Bounce, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useState } from "react";
 import MobileHeader from "./components/MobileHeader/MobileHeader";
+import Explore from "./pages/Explore/Explore";
 
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
@@ -45,6 +46,11 @@ function App() {
               path={navigation.viewPostPage.dynamic}
               element={<ViewPost />}
             />
+            <Route
+              path={navigation.explorePage.dynamic}
+              element={<Explore />}
+            />
+            <Route path={navigation.explorePage.base} element={<Explore />} />
           </Routes>
           <AuthScreen />
           <ToastContainer
