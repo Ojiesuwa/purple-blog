@@ -3,6 +3,11 @@
   height: 65px;
   background-color: var(--header-background);
   padding: 0 20px;
+  z-index: 300;
+}
+
+.MobileHeader > * {
+  width: 100%;
 }
 
 .MobileHeader .logo-name {
@@ -13,6 +18,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.MobileHeader .middle-wing p {
+  text-align: center;
 }
 
 .MobileHeader .left-wing i {
@@ -32,6 +41,7 @@
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
   border-bottom: 1px solid var(--border-light);
+  z-index: 300;
 }
 
 .Navigation * {

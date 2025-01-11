@@ -1,2 +1,115 @@
 .ViewPost {
+  display: flex;
+  justify-content: center;
+}
+
+.ViewPost .main-container {
+  height: 100%;
+  width: 100%;
+  max-width: 750px;
+}
+
+.ViewPost .post-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 21px;
+}
+
+.ViewPost .information-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ViewPost .information-wrapper .left-wrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.ViewPost .author-image {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.ViewPost .author-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+.ViewPost .post-date {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+.ViewPost .right-wrapper {
+  display: flex;
+  gap: 31px;
+}
+
+.ViewPost .action-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ViewPost .action-wrapper p {
+  font-size: 14px;
+  color: var(--border-light);
+}
+.ViewPost .action-wrapper i {
+  filter: saturate(0);
+  color: var(--border-light);
+}
+.ViewPost .action-wrapper i:hover {
+  cursor: pointer;
+}
+
+.fa-heart {
+}
+
+.ViewPost .blog-header {
+  margin-top: 44px;
+  margin-bottom: 26px;
+}
+
+.mobile-action-wrapper {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .ViewPost {
+    padding: 0 20px;
+  }
+
+  .ViewPost .information-wrapper .right-wrapper {
+    display: none;
+  }
+
+  .ViewPost .post-title {
+    font-size: 23px;
+    width: 100%;
+  }
+
+  .ViewPost .blog-header {
+    margin-top: 31px;
+  }
+  .mobile-action-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 60px;
+    border-top: 1px solid var(--border-light);
+  }
+  .mobile-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 265px;
+  }
 }
