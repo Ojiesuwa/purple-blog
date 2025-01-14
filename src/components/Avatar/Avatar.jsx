@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./Avatar.css";
 import useAuth from "../../hooks/useAuth";
 import { useTheme } from "../../hooks/useTheme";
-const Avatar = () => {
+const Avatar = ({ auth, setAuth }) => {
   const { signout } = useAuth();
   const { theme, changeTheme } = useTheme();
+  const { userCredential, accountData } = useAuth();
   const [isListVisible, setIsListVisible] = useState(false);
 
   useEffect(() => {
@@ -54,6 +55,26 @@ const Avatar = () => {
             </select>
           </div>
           <div className="line"></div>
+          {accountData.admin && (
+            <>
+              <div className="category">
+                <p className="category-title">Authorization</p>
+                <select
+                  name=""
+                  id=""
+                  value={auth}
+                  onChange={(e) => {
+                    setAuth(e.target.value);
+                    setIsListVisible(false);
+                  }}
+                >
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                </select>
+              </div>
+              <div className="line"></div>
+            </>
+          )}
 
           <button onClick={signout}>Signout</button>
         </div>

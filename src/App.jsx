@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useState } from "react";
 import MobileHeader from "./components/MobileHeader/MobileHeader";
 import Explore from "./pages/Explore/Explore";
+import ManageBlog from "./pages/ManageBlog/ManageBlog";
 
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
@@ -49,6 +50,14 @@ function App() {
             <Route
               path={navigation.explorePage.dynamic}
               element={<Explore />}
+            />
+            <Route
+              path={navigation.manageBlogsPage.base}
+              element={<ManageBlog />}
+            />
+            <Route
+              path={navigation.manageBlogsPage.dynamic}
+              element={<ManageBlog />}
             />
             <Route path={navigation.explorePage.base} element={<Explore />} />
           </Routes>

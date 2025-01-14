@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db, storage } from "./config";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { generateRandomChars } from "../utils/random";
 
 export const isDocumentExistent = (snapshot) => snapshot.exists();
 export const isCollectionExistent = (snapshot) => !snapshot.empty();
@@ -103,44 +104,44 @@ export const updateDocumentById = (collectionName, docId, data) =>
     }
   });
 
-// export const uploadFile = (file, onProgress) => {
-//   return new Promise(async (resolve, reject) => {
-//     try {
-//       const fileName = `${generateRandomChars()}.${file.name.split(".").pop()}`;
-//       const fileRef = ref(storage, fileName);
-//       const uploadTask = uploadBytesResumable(fileRef, file);
+export const uploadFile = (file, onProgress) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const fileName = `${generateRandomChars()}.${file.name.split(".").pop()}`;
+      const fileRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(fileRef, file);
 
-//       uploadTask.on(
-//         "state_changed",
-//         (snapshot) => {
-//           const progress =
-//             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-//           onProgress(progress);
-//           console.log(`Upload is ${progress}% done`);
-//           switch (snapshot.state) {
-//             case "paused":
-//               console.log("Upload is paused");
-//               break;
-//             case "running":
-//               console.log("Upload is running");
-//               break;
-//           }
-//         },
-//         (error) => {
-//           reject(error);
-//         },
-//         () => {
-//           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-//             resolve(downloadURL);
-//           });
-//         }
-//       );
-//     } catch (error) {
-//       console.error(error);
-//       reject(error);
-//     }
-//   });
-// };
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          onProgress(progress);
+          console.log(`Upload is ${progress}% done`);
+          switch (snapshot.state) {
+            case "paused":
+              console.log("Upload is paused");
+              break;
+            case "running":
+              console.log("Upload is running");
+              break;
+          }
+        },
+        (error) => {
+          reject(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            resolve(downloadURL);
+          });
+        }
+      );
+    } catch (error) {
+      console.error(error);
+      reject(error);
+    }
+  });
+};
 
 export const getCollectionByField = (collectionName, field, value) => {
   return new Promise(async (resolve, reject) => {

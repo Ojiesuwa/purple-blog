@@ -1,9 +1,21 @@
-import { createDocument } from "../firebase/firebaseTools";
+import { createDocument, liveListen } from "../firebase/firebaseTools";
 
-export const createNewAccount = ({ firstname, lastname, email, uid }) => {
+export const createNewAccount = ({
+  firstname,
+  lastname,
+  middlename,
+  email,
+  uid,
+}) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const payload = { firstname, lastname, email, createdAt: new Date() };
+      const payload = {
+        firstname,
+        middlename,
+        lastname,
+        email,
+        createdAt: new Date(),
+      };
       const res = await createDocument("Account", uid, payload);
       resolve();
     } catch (error) {
@@ -11,4 +23,8 @@ export const createNewAccount = ({ firstname, lastname, email, uid }) => {
       reject(error);
     }
   });
+};
+
+export const initiateLiveAccount = (uid, cb) => {
+  liveListen("Account", uid, cb);
 };

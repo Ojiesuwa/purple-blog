@@ -1,0 +1,62 @@
+.BlogComponent {
+}
+
+/* Cover IMage */
+
+.CoverImage {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.CoverImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-top: 38px;
+}
+
+.HeadingOne {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 25px;
+}
+.HeadingTwo {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+.HeadingThree {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+.Paragraph {
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 6px;
+  white-space: pre-line;
+  text-align: justify;
+}
+
+.Image img {
+  width: 100%;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.Image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Image .image-label {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+}

@@ -91,13 +91,23 @@
 
 .BlogPreview .left-action i {
   font-size: 20px;
+  color: var(--text-color);
 }
 .BlogPreview .left-action p {
   font-size: 13px;
+  color: var(--text-color);
+}
+
+.BlogPreview .action-wrapper {
+  color: var(--text-color);
 }
 
 .BlogPreview .mobile-action {
   display: none;
+}
+
+.BlogPreview .fa-bookmark {
+  color: var(--text-color);
 }
 
 @media screen and (max-width: 700px) {

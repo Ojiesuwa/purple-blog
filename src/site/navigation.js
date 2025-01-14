@@ -24,15 +24,15 @@ export const navigation = {
     dynamic: "/about",
   },
   dashboardPage: {
-    base: "admin/dashboard",
-    dynamic: "admin/dashboard",
+    base: "/admin/dashboard",
+    dynamic: "/admin/dashboard",
   },
   userManagementPage: {
-    base: "admin/user-management",
-    dynamic: "admin/user-management",
+    base: "/admin/user-management",
+    dynamic: "/admin/user-management",
   },
   manageBlogsPage: {
-    base: "admin/manage-blogs",
-    dynamic: "admin/manage-blogs",
+    base: "/admin/manage-blogs",
+    dynamic: "/admin/manage-blogs/:blogId",
   },
 };

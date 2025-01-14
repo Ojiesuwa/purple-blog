@@ -1,0 +1,166 @@
+.ManageBlog {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ManageBlog .main-container {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  gap: 45px;
+}
+
+.ManageBlog .left-wing {
+  width: 300px;
+  height: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.ManageBlog .left-wing .page-title {
+  margin-bottom: 24px;
+}
+
+.ManageBlog .left-wing .cover-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 21px;
+  object-fit: cover;
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+}
+
+.ManageBlog .left-wing .cover-image:hover {
+  opacity: 0.7;
+}
+
+.ManageBlog .left-wing button {
+  background-color: var(--dark-button);
+  flex-shrink: 0;
+  margin-top: 21px;
+  color: var(--background-color);
+}
+
+.ManageBlog .left-wing textarea {
+  resize: none;
+  padding: 10px 15px;
+}
+
+.ManageBlog .left-wing .blog-name {
+  height: 45px;
+  flex-shrink: 0;
+  margin-bottom: 6px;
+}
+
+.ManageBlog .left-wing .blog-description {
+  height: 100%;
+}
+
+.ManageBlog .right-wing {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ManageBlog .control-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ManageBlog .left-control {
+  display: flex;
+}
+
+.ManageBlog .editor-mode {
+  height: 32px;
+  padding: 6px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ManageBlog .editor-mode p {
+  font-size: 13px;
+}
+
+.ManageBlog .mode-active {
+  background-color: var(--accent-color);
+}
+
+.ManageBlog .mode-active p {
+  color: #fff;
+}
+
+.ManageBlog .controller-block {
+  width: 187px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  gap: 26px;
+  background-color: var(--background-color);
+}
+
+.ManageBlog .controller-block .control-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ManageBlog .controller-block * {
+  color: var(--text-color);
+}
+
+.ManageBlog .controller-block .control-item:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+
+.ManageBlog .right-control {
+  display: flex;
+  gap: 31px;
+}
+
+.ManageBlog .right-control .selector-btn {
+  width: 187px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  gap: 7px;
+  background-color: var(--background-color);
+  cursor: pointer;
+}
+
+.ManageBlog .right-control .selector-btn p {
+  font-size: 13px;
+}
+.ManageBlog .right-control .selector-btn i {
+  font-size: 15px;
+}
+/* Preview container */
+
+.ManageBlog.right-wing {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ManageBlog .preview-container {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}

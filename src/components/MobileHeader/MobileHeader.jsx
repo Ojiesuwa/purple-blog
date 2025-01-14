@@ -10,14 +10,25 @@ import { navigation } from "../../site/navigation";
 const MobileHeader = () => {
   const { userCredential } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const [isRegVisible, setIsRegVisible] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(false);
+  const [auth, setAuth] = useState("user");
 
   useEffect(() => {
     if (location.pathname === "/auth") {
       setIsRegVisible(true);
     }
   }, [location]);
+
+  useEffect(() => {
+    if (auth === "admin") {
+      setIsNavVisible(true);
+      navigate(navigation.dashboardPage.base);
+    } else {
+      navigate(navigation.homePage.base);
+    }
+  }, [auth]);
   return (
     <div className="MobileHeader Header">
       <div className="left-wing">
@@ -32,7 +43,12 @@ const MobileHeader = () => {
       </div>
       <div className="right-wing">
         {userCredential ? (
-          <Avatar />
+          <Avatar
+            auth={auth}
+            setAuth={() => {
+              alert("Admin Priviledges are only allowed on desktop view");
+            }}
+          />
         ) : (
           <button className="login-btn" onClick={() => setIsRegVisible(true)}>
             Login
@@ -46,51 +62,72 @@ const MobileHeader = () => {
       <Navigation
         isVisible={isNavVisible}
         onHideNav={() => setIsNavVisible(false)}
+        auth={auth}
       />
     </div>
   );
 };
 
-const Navigation = ({ isVisible, onHideNav }) => {
+const Navigation = ({ isVisible, onHideNav, auth }) => {
   const navigate = useNavigate();
+  const { userCredential } = useAuth();
   return (
     <div className={`Navigation ${isVisible ? "nav-active" : "nav-inactive"}`}>
-      <div
-        className="nav-wrapper"
-        onClick={() => {
-          onHideNav();
-          navigate(navigation.homePage.base);
-        }}
-      >
-        <p> Home </p>
-      </div>
-      <div
-        className="nav-wrapper"
-        onClick={() => {
-          onHideNav();
-          navigate(navigation.explorePage.base);
-        }}
-      >
-        <p> Explore </p>
-      </div>
-      <div
-        className="nav-wrapper"
-        onClick={() => {
-          onHideNav();
-          navigate(navigation.aboutPage.base);
-        }}
-      >
-        <p> About me </p>
-      </div>
-      <div
-        className="nav-wrapper"
-        onClick={() => {
-          onHideNav();
-          navigate(navigation.savedPostsPage.base);
-        }}
-      >
-        <p> Saved </p>
-      </div>
+      {auth !== "admin" && userCredential ? (
+        <>
+          <div
+            className="nav-wrapper"
+            onClick={() => navigate(navigation.homePage.base)}
+          >
+            <p> Home </p>
+          </div>
+          <div
+            className="nav-wrapper"
+            onClick={() => navigate(navigation.explorePage.base)}
+          >
+            <p> Explore </p>
+          </div>
+          <div
+            className="nav-wrapper"
+            onClick={() => navigate(navigation.aboutPage.base)}
+          >
+            <p> About me </p>
+          </div>
+          <div
+            className="nav-wrapper"
+            onClick={() => navigate(navigation.savedPostsPage.base)}
+          >
+            <p> Saved </p>
+          </div>{" "}
+        </>
+      ) : (
+        <>
+          <div
+            className="nav-wrapper"
+            onClick={() => navigate(navigation.homePage.base)}
+          >
+            <p> Home </p>
+          </div>
+          <div
+            className="nav-wrapper"
+            onClick={() => navigate(navigation.dashboardPage.base)}
+          >
+            <p> Dashboard </p>
+          </div>
+          <div
+            className="nav-wrapper"
+            onClick={() => navigate(navigation.manageBlogsPage.base)}
+          >
+            <p> Blogs </p>
+          </div>
+          <div
+            className="nav-wrapper"
+            onClick={() => navigate(navigation.userManagementPage.base)}
+          >
+            <p> Account </p>
+          </div>
+        </>
+      )}
       <div className="nav-wrapper">
         <i className="fa-light fa-circle-chevron-up" onClick={onHideNav}></i>
       </div>

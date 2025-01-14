@@ -6,7 +6,7 @@ import {
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/config";
-import { createNewAccount } from "../controllers/accounts";
+import { createNewAccount, initiateLiveAccount } from "../controllers/accounts";
 import { validateSignupDetails } from "../utils/validator";
 import { toast } from "react-toastify";
 
@@ -24,6 +24,16 @@ export const AuthProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
+
+  useEffect(() => {
+    if (userCredential) {
+      initiateLiveAccount(userCredential.uid, (data) => {
+        setAccountData(data);
+      });
+    } else {
+      setAccountData(null);
+    }
+  }, [userCredential]);
 
   const signup = ({ firstname, lastname, middlename, email, password }) => {
     return new Promise(async (resolve, reject) => {

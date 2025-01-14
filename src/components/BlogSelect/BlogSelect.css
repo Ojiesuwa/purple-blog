@@ -1,0 +1,82 @@
+.BlogSelect {
+  width: 576px;
+  height: 378px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  border: 1px solid var(--input-border-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 300;
+  padding: 25px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.BlogSelect .header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.BlogSelect .modal-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.BlogSelect .cancel-modal {
+  font-size: 20px;
+  opacity: 0.6;
+}
+.BlogSelect .cancel-modal:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.BlogSelect .preview-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.BlogSelect button {
+  flex-shrink: 0;
+}
+
+.BlogSelect .button-wrapper {
+  padding: 0 25px;
+}
+
+.BlogItem {
+  display: flex;
+  gap: 18px;
+  cursor: pointer;
+  height: 65px;
+  align-items: center;
+  padding: 0 25px;
+  border-radius: 10px;
+}
+
+.BlogItem:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.BlogItem img {
+  width: 61px;
+  height: 45px;
+  border-radius: 10px;
+}
+
+.BlogItem .blog-title {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.BlogItem .blog-date {
+  font-size: 13px;
+  font-weight: 400;
+  opacity: 0.5;
+}

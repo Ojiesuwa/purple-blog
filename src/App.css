@@ -34,10 +34,17 @@ p {
   background-color: var(--background-color);
 }
 
+body {
+  width: 100vw;
+  height: 100svh;
+  background-color: var(--background-color);
+}
+
 .page {
   width: 100vw;
   height: calc(100svh - 65px);
   overflow-y: scroll;
+  background-color: var(--background-color);
 }
 
 /* input fields */
@@ -52,7 +59,7 @@ input {
   border-radius: 10px;
   font-size: 13px;
 }
-input {
+textarea {
   background-color: transparent;
   outline: 0;
   border: 1.3px solid var(--input-border-color);
@@ -93,6 +100,7 @@ select {
   height: 1px;
   width: 100%;
   background-color: var(--border-light);
+  flex-shrink: 0;
 }
 
 .page-padding {
